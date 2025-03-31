@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: atlan-frontend
+spec:
+  source:
+    repoURL: https://github.com/sahiljaiswal/atlan-challenge-xyz.git
+    path: charts/frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: atlan
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,9 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: go test ./... -coverprofile=coverage.out
+      - run: go tool cover -func=coverage.out
+  strategy:
+    matrix:
+      shard: [1, 2, 3]
